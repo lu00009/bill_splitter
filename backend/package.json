@@ -2,13 +2,14 @@
 	"name": "bill_splitter-backend",
 	"version": "0.1.0",
 	"private": true,
-	"type": "commonjs",
+	"type": "CommonJS",
 	"scripts": {
 		"dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
 		"build": "tsc -p tsconfig.json",
-		"start": "node dist/index.js",
+		"start": "node dist/server.js",
 		"prisma:generate": "prisma generate",
-		"prisma:migrate": "prisma migrate dev --name init"
+		"prisma:migrate": "prisma migrate dev --name init",
+		"postinstall": "prisma generate"
 	},
 	"dependencies": {
 		"@prisma/client": "^6.19.0",

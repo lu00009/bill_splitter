@@ -1,18 +1,18 @@
-import app from "./app";
+import app from "./app"; // ts-node can resolve .ts automatically
 import http from "http";
 import { Server } from "socket.io";
 import { PORT } from "./config/env";
-import roomEvents from "./sockets/room.events"; // make sure path is correct
+import roomEvents from "./sockets/room.events";
 
 // Create HTTP server from Express app
 const server = http.createServer(app);
 
-// Attach socket.io
+// Attach Socket.io
 const io = new Server(server, {
   cors: {
     origin: "*", // or your frontend URL
-    methods: ["GET", "POST"]
-  }
+    methods: ["GET", "POST"],
+  },
 });
 
 // Load socket events
